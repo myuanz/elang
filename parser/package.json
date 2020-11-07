@@ -1,0 +1,15 @@
+{
+  "name": "elang-parser",
+  "version": "0.0.1",
+  "description": "elang 解析器",
+  "main": "index.js",
+  "repository": "https://github.com/myuanz/elang/parser",
+  "author": "myuan",
+  "license": "BSD-2",
+  "type": "module",
+  "dependencies": {
+    "pegjs": "^0.10.0"
+  },
+  "devDependencies": {
+  }
+}

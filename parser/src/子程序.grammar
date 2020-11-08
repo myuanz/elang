@@ -1,38 +1,95 @@
 子程序们 = 子程序*
 
-子程序 = head:子程序头 __ body:子程序体* {
-
+子程序 = head:子程序头 __ body:子程序体 {
+	return {
+    	type: '子程序',
+    	head: head,
+        body: body
+    }
 }
-子程序头 = Word
-子程序体 = ((注释 / 语句) __)* {
-	console.log(head, tail)
+子程序头 = ".子程序 " subProgramDef:逗号数据 __ 
+	items:(变量 __)*
+{
+	items = items.map(t=>t[0])
+    return {
+    	子程序名: subProgramDef[0],
+        返回值类型: subProgramDef[1] || null,
+        公开: !!subProgramDef[2],
+        备注: subProgramDef[3],
+        参数: items.filter(t=>t.scope == '参数'),
+        局部变量: items.filter(t=>t.scope == '局部变量'),
+    }
 }
 
-
-注释 = "'" comment:AnyCharStopedAtLineEnd __ {
-	return comment.trimLeft()
-}
-语句 = 多行语句 / 单行语句
-单行语句 = 单行流控语句 / 普通单行语句
-多行语句 = 多行流控语句 / 普通多行语句
-
-单行流控语句 = "到循环尾" / "跳出循环" / "返回" / "结束"
-普通单行语句 = t:AnyCharStopedAtLineEnd {
-	return t
+子程序体 = head:(注释 / (表达式 NL))* {
+	// console.log(head)
+    return head
 }
 
-多行流控语句 = 如果 // / 如果真 / 判断 / 判断循环 / 循环判断 / 计次循环 / 变量循环
-普通多行语句 = [^.] // 暂时没有普通多行语句
+注释 = "'" comment:AnyCharStopedAtLineEnd NL {
+	return {content: comment.trimLeft(), type: '注释'}
+}
 
-如果 = ".如果 (" condition:普通单行语句 ")" __ 
-indentation1:缩进 todos1:普通单行语句+
+表达式 = 多行表达式 / 单行表达式
+
+单行表达式 = exp:(
+	赋值 / 
+    调用 / 
+    exp:("(" 单行表达式 ")"){console.log('奇特', exp);return exp[1]} / 
+    Identifier / 
+    Integer
+) {
+    return {content: exp, type: '表达式'}
+}
+
+多行表达式 = 多行流控表达式 //  / 普通多行表达式 // 暂时没有普通多行表达式
+
+赋值 = i:(Identifier _ "=" _ 表达式) {
+    i = i.filter(t=>t!==undefined)
+    // console.log('赋值', {content: i, type: '赋值', left: i[0], right: i[2]})
+	return {content: JSON.stringify(i), type: '赋值', left: i[0], right: i[2]}
+}
+调用 = i:(Identifier "(" _ 表达式* (_ "," _ 表达式)* ")") {
+	i = i.filter(t=>t!==undefined)
+	console.log('调用', i)
+    let args = i[2].concat(i[3].map(t => t[3]))
+    console.log('调用参数', args)
+	return {call: i[0], args: args, type: '调用', content: JSON.stringify(i)}
+}
+
+多行流控表达式 = 如果 // / 如果真 / 判断 / 判断循环 / 循环判断 / 计次循环 / 变量循环
+
+如果 = ".如果 (" condition:单行表达式 ")" NL
+todos1: (缩进 (注释 / 表达式) __)* 
 ".否则"  __ 
-indentation2:缩进 todos2:普通单行语句+
+todos2: (缩进 (注释 / 表达式) __)*
 ".如果结束" {
-	console.log(condition, todos1, todos2, indentation1, indentation2)
+	todos1 = todos1.map(t=>t.slice(0, -1)).reduce((x, y) => x.concat(y))
+	todos2 = todos2.map(t=>t.slice(0, -1)).reduce((x, y) => x.concat(y))
+    return {
+    	type: '如果',
+        条件: condition,
+        应为: todos1,
+        否则为: todos2,
+        缩进: [todos1[0], todos2[0]]
+    }
+}
+变量 = "." variableScope:Identifier " " items:逗号数据{
+    return {
+    	scope: variableScope,
+        name: items[0],
+        type: items[1],
+        array: items[3] ? parseInt(items[3].slice(1,-1)) : null,
+        note: items[4]   
+    }
 }
 
-缩进 = " "+
+// --------------------
+// -------common-------
+// --------------------
+缩进 = i:[ \t]+ {
+	return {content: i.join(""), type: '缩进', value: i.length}
+}
 
 逗号数据 =  head:逗号数据单元 tail:(", " 逗号数据单元)* {
 	return [head, ...tail.map(t=>t[1])]
@@ -72,7 +129,7 @@ AnyChar = any:(.*) {
 AnyCharStopedAtLineEnd = any:([^\n\r]*) {
 	return any.join("")
 }
-
+$ = AnyCharStopedAtLineEnd
 
 Word  = word:Char+ {
 	return word.join("")
@@ -83,12 +140,15 @@ MaybeWord = word:Char* {
 }
 Underscore = [_]
 
-Identifier = identifier:(Char / Underscore)* {
+Identifier "标识符" = identifier:(Char / Underscore)+ {
 	return identifier.join("")
 }
 
 _ "whitespace" = [ \t]* {
 }
-  
+
+
 __ "breakline" = breakline:[\n\r]* {
 }
+
+NL "绝对换行" = [\r\n]+

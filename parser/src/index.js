@@ -35,5 +35,5 @@ _ "whitespace"
 `
 var parser = peg.generate(tt);
 
-var t = parser.parse(String.raw`2 * (3 + 4)`); 
+var t = parser.parse(String.raw`2 * (3 + 4ss)`);
 console.log(t);

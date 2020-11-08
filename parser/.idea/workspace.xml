@@ -20,8 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35c3d6cf-00c1-4d66-b4dd-5ecfbfc99a60" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grammars/注释.grammar" beforeDir="false" afterPath="$PROJECT_DIR$/src/grammars/注释.grammar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grammars/注释.grammar.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/grammars/注释.grammar.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,13 +35,24 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1jzqm7wkc4ZNbWnFCJ3IVXXSTqx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -51,15 +65,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/grammars" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Program Files/nodejs" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="IntelliLang.Configuration" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -67,6 +85,37 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\myuan\Desktop\codes\elang\parser\src\grammars" />
     </key>
+  </component>
+  <component name="RunManager" selected="Jest.adds 1 + 2 to equal 3">
+    <configuration name="adds 1 + 2 to equal 3" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/grammars/注释.grammar.test.ts" />
+      <test-names>
+        <test-name value="adds 1 + 2 to equal 3" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.adds 1 + 2 to equal 3" />
+        <item itemvalue="npm.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -77,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604817424510</updated>
       <workItem from="1604817426013" duration="709000" />
-      <workItem from="1604818152556" duration="12481000" />
+      <workItem from="1604818152556" duration="22915000" />
     </task>
     <servers />
   </component>
@@ -97,21 +146,105 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="221" y="337" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604847164801">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="221" y="337" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1359@0.0.2560.1359" timestamp="1604847164801" />
     <state x="523" y="557" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604818490600">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
     <state x="523" y="557" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1359@0.0.2560.1359" timestamp="1604818490600" />
+    <state x="659" y="625" key="#com.intellij.ide.scriptingContext.ui.PerFileMappingsDialogWrapper" timestamp="1604841463738">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="659" y="625" key="#com.intellij.ide.scriptingContext.ui.PerFileMappingsDialogWrapper/0.0.2560.1359@0.0.2560.1359" timestamp="1604841463738" />
     <state x="1056" y="460" key="#org.intellij.plugins.intelliLang.inject.config.ui.BaseInjectionDialog" timestamp="1604818453845">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
     <state x="1056" y="460" key="#org.intellij.plugins.intelliLang.inject.config.ui.BaseInjectionDialog/0.0.2560.1359@0.0.2560.1359" timestamp="1604818453845" />
-    <state x="932" y="502" key="SettingsEditor" timestamp="1604818455850">
+    <state width="520" height="466" key="DebuggerActiveHint" timestamp="1604846081757">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
-    <state x="932" y="502" key="SettingsEditor/0.0.2560.1359@0.0.2560.1359" timestamp="1604818455850" />
+    <state width="520" height="466" key="DebuggerActiveHint/0.0.2560.1359@0.0.2560.1359" timestamp="1604846081757" />
+    <state x="709" y="600" key="FileChooserDialogImpl" timestamp="1604841459285">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="709" y="600" key="FileChooserDialogImpl/0.0.2560.1359@0.0.2560.1359" timestamp="1604841459285" />
+    <state width="1511" height="386" key="GridCell.Tab.0.bottom" timestamp="1604847200300">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1511" height="386" key="GridCell.Tab.0.bottom/0.0.2560.1359@0.0.2560.1359" timestamp="1604847200300" />
+    <state width="1511" height="386" key="GridCell.Tab.0.center" timestamp="1604847200300">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1511" height="386" key="GridCell.Tab.0.center/0.0.2560.1359@0.0.2560.1359" timestamp="1604847200300" />
+    <state width="1511" height="386" key="GridCell.Tab.0.left" timestamp="1604847200299">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1511" height="386" key="GridCell.Tab.0.left/0.0.2560.1359@0.0.2560.1359" timestamp="1604847200299" />
+    <state width="1511" height="386" key="GridCell.Tab.0.right" timestamp="1604847200300">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1511" height="386" key="GridCell.Tab.0.right/0.0.2560.1359@0.0.2560.1359" timestamp="1604847200300" />
+    <state width="1362" height="474" key="GridCell.Tab.1.bottom" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.1.bottom/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.1.center" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.1.center/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.1.left" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.1.left/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.1.right" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.1.right/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.2.bottom" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.2.bottom/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.2.center" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.2.center/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.2.left" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.2.left/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.2.right" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.2.right/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.3.bottom" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.3.bottom/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.3.center" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.3.center/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.3.left" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.3.left/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state width="1362" height="474" key="GridCell.Tab.3.right" timestamp="1604846662013">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1362" height="474" key="GridCell.Tab.3.right/0.0.2560.1359@0.0.2560.1359" timestamp="1604846662013" />
+    <state x="430" y="490" key="SettingsEditor" timestamp="1604841502348">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="430" y="490" key="SettingsEditor/0.0.2560.1359@0.0.2560.1359" timestamp="1604841502348" />
     <state x="531" y="669" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604827966070">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
     <state x="531" y="669" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1359@0.0.2560.1359" timestamp="1604827966070" />
+    <state x="535" y="324" key="run.anything.popup" timestamp="1604839719708">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="535" y="324" key="run.anything.popup/0.0.2560.1359@0.0.2560.1359" timestamp="1604839719708" />
   </component>
 </project>

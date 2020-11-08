@@ -1,2 +1,5 @@
-import base
-import 注释2
+// import base
+
+注释 = "'" comment:AnyCharStopedAtLineEnd NL* {
+	return {content: comment.trimLeft(), type: '注释'}
+}

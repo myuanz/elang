@@ -16,13 +16,6 @@ export class Generator {
         if (!fs.existsSync(this.buildPath)) {
             fs.mkdirSync(this.buildPath)
         }
-
-        try {
-            const fileRes = fs.readFileSync(path.join(this.basePath, 'base.grammar'))
-            this.baseFile = fileRes.toString()
-        } catch (e) {
-            this.baseFile = ''
-        }
     }
 
     public FindImportInFile(filename): string[] {

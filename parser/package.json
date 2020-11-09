@@ -7,7 +7,8 @@
   "author": "myuan",
   "license": "BSD-2-Clause",
   "scripts": {
-    "test": "cd src && ts-node test/index.ts"
+    "test": "./node_modules/.bin/jest",
+    "gentest": "ts-node src/utils/generateTests.ts"
   },
   "dependencies": {
     "@types/pegjs": "^0.10.2",

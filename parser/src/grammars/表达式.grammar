@@ -1,0 +1,72 @@
+// import base
+// import 注释
+
+
+表达式 = 多行表达式 / 单行表达式
+
+一元运算符 = "+" / "-" / "＋" / "－"  // 全角＋－在易语言中单用于二元运算符, 但这里不区分二者
+一元表达式 = t:(一元运算符 _ 单行表达式){
+	// console.log('一元表达式', t)
+	return {
+    	type: '一元表达式',
+        symbol: t[0],
+        content: t[2]
+    }
+}
+
+
+二元运算符 = "+" / "-" / "＋" / "－" / "*" / "/" / "×" / "÷" / "％"  // 全角＋－在易语言中单用于二元运算符, 但这里不区分二者
+二元表达式 = head:(非二元单行表达式) tail:(_ 二元运算符 _ 非二元单行表达式)* {
+	// console.log('二元运算', head, tail)
+	return tail.reduce(
+            	(x, y) => ({type: '二元运算', left: x, right: y[3], symbol: y[1]}
+            ), head)
+}
+
+单行表达式 = exp:(
+	二元表达式 /
+    非二元单行表达式
+)
+
+非二元单行表达式 = exp:(
+    exp:("(" 单行表达式 ")"){return exp[1]} /
+	赋值 /
+    调用 /
+    i:Identifier {return {type: '标识符', content: i}} /
+    i:Integer {return {type: '数字', content: i}} /
+    一元表达式
+)
+
+多行表达式 = 多行流控表达式 //  / 普通多行表达式 // 暂时没有普通多行表达式
+
+赋值 = i:(Identifier _ ("="/"＝") _ 表达式) {
+    i = i.filter(t=>t!==undefined)
+    // console.log('赋值', {content: i, type: '赋值', left: i[0], right: i[2]})
+	return {type: '赋值', left: i[0], right: i[2]}
+}
+
+调用 = i:(Identifier "(" _ 表达式* (_ "," _ 表达式)* ")") {
+	i = i.filter(t=>t!==undefined)
+	// console.log('调用', i)
+    let args = i[2].concat(i[3].map(t => t[3]))
+    // console.log('调用参数', args)
+	return {call: i[0], args: args, type: '调用'}
+}
+
+多行流控表达式 = 如果 // / 如果真 / 判断 / 判断循环 / 循环判断 / 计次循环 / 变量循环
+
+如果 = ".如果 (" condition:单行表达式 ")" NL
+todos1: (缩进 (注释 / 表达式) __)*
+".否则"  __
+todos2: (缩进 (注释 / 表达式) __)*
+".如果结束" {
+	todos1 = todos1.map(t=>t.slice(0, -1)).reduce((x, y) => x.concat(y))
+	todos2 = todos2.map(t=>t.slice(0, -1)).reduce((x, y) => x.concat(y))
+    return {
+    	type: '如果',
+        条件: condition,
+        应为: todos1,
+        否则为: todos2,
+        缩进: [todos1[0], todos2[0]]
+    }
+}

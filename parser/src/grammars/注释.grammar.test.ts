@@ -1,15 +1,14 @@
 import {quickGetParserByName} from "../utils/quickGetParserByName";
 
 const parser = quickGetParserByName(__filename, __dirname)
-console.log(parser.parse("' asd"))
 
-test('adds 1 + 2 to equal 3', () => {
-    expect(parser.parse("' asd")).toEqual({type: '注释', content: 'asd'});
+test(__filename, () => {
+    const tests = {
+        "' asd": {type: '注释', content: 'asd'},
+        "'    asd": {type: '注释', content: 'asd'},
+        "''''asd": {type: '注释', content: "'''asd"},
+    }
+    for (const input of Object.keys(tests)){
+        expect(parser.parse(input)).toEqual(tests[input]);
+    }
 });
-
-
-exports.testSample = {
-    "' asd": {type: '注释', content: 'asd'},
-    "'asd   ": {type: '注释', content: 'asd   '},
-    "' assssd": {type: '注释', content: 'assssd'},
-}

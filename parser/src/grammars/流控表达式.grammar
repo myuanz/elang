@@ -1,0 +1,22 @@
+// import base
+// import 注释
+// import 表达式
+
+
+多行流控表达式 = 如果 // / 如果真 / 判断 / 判断循环 / 循环判断 / 计次循环 / 变量循环
+
+如果 = ".如果 (" condition:单行表达式 ")" NL
+	todos1: (缩进* (注释 / 表达式) __)*
+".否则"  __
+	todos2: (缩进* (注释 / 表达式) __)*
+".如果结束" {
+	// console.log(todos1, todos2)
+	todos1 = todos1 && todos1.map(t=>t.slice(1, -1)).reduce((x, y) => x.concat(y), [])
+	todos2 = todos2 && todos2.map(t=>t.slice(1, -1)).reduce((x, y) => x.concat(y), [])
+    return {
+    	type: '如果',
+        条件: condition,
+        应为: todos1,
+        否则为: todos2,
+    }
+}

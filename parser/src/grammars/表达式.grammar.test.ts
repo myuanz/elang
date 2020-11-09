@@ -56,8 +56,6 @@ test(__filename, () => {
                 "symbol": "％"
             }
         }
-
-
     }
     for (const input of Object.keys(tests)) {
         expect(parser.parse(input)).toEqual(tests[input]);

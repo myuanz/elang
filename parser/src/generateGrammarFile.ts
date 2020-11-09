@@ -56,10 +56,31 @@ export class Generator {
             return deepmerge(imports, currentImports)
         }
     }
+    ResolveImportWithoutCircularDetection(startFileNames: string[], currentImports = {}) {
+        const imports = startFileNames
+            .map(startFile => {
+                const newImports = this.FindImportInFile(startFile).filter(t => {
+                    return !Object.keys(currentImports).includes(t + ".grammar")
+                })
 
+                return {[startFile]: newImports}
+            })
+            .reduce((x, y) => deepmerge(x, y))
+
+        const flat = Object.values(imports)
+            .reduce((x, y) => x.concat(y))
+            .map(t => t + ".grammar")
+
+        if (flat.length) {
+            return this.ResolveImportWithoutCircularDetection(flat, deepmerge(imports, currentImports))
+        } else {
+            return deepmerge(imports, currentImports)
+        }
+
+    }
     BuildFile(name: string, toFile: boolean = true): string {
         const imports = Object
-            .keys(this.ResolveImport([name]))
+            .keys(this.ResolveImportWithoutCircularDetection([name]))
             .filter(t => t != name)
             .map(t => fs.readFileSync(path.join(this.basePath, t)).toString())
         const fileStr = fs.readFileSync(path.join(this.basePath, name)).toString()

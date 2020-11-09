@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="35c3d6cf-00c1-4d66-b4dd-5ecfbfc99a60" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generateGrammarFile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/generateGrammarFile.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/grammars/表达式.grammar" beforeDir="false" afterPath="$PROJECT_DIR$/src/grammars/表达式.grammar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grammars/表达式.grammar.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/grammars/表达式.grammar.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/quickGetParserByName.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/quickGetParserByName.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest-cli" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
@@ -87,6 +84,19 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.test">
+    <configuration name="__filename (1)" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/grammars/取数组表达式.grammar.test.ts" />
+      <test-names>
+        <test-name value="__filename" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="__filename" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -137,12 +147,14 @@
       <item itemvalue="Jest.__filename" />
       <item itemvalue="npm.test" />
       <item itemvalue="npm.gentest" />
+      <item itemvalue="Jest.__filename (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.test" />
-        <item itemvalue="Jest.__filename" />
+        <item itemvalue="Jest.__filename (1)" />
         <item itemvalue="npm.gentest" />
+        <item itemvalue="Jest.__filename" />
         <item itemvalue="Jest.__filename" />
       </list>
     </recent_temporary>
@@ -156,7 +168,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604817424510</updated>
       <workItem from="1604817426013" duration="709000" />
-      <workItem from="1604818152556" duration="30533000" />
+      <workItem from="1604818152556" duration="33110000" />
     </task>
     <servers />
   </component>
@@ -180,10 +192,10 @@
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
     <state x="263" y="357" width="1092" height="814" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1359@0.0.2560.1359" timestamp="1604886892001" />
-    <state x="255" y="161" width="1655" height="1166" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1604903856948">
+    <state x="255" y="161" width="1655" height="1166" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1604909853783">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
-    <state x="255" y="161" width="1655" height="1166" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.2560.1359@0.0.2560.1359" timestamp="1604903856948" />
+    <state x="255" y="161" width="1655" height="1166" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.2560.1359@0.0.2560.1359" timestamp="1604909853783" />
     <state x="523" y="557" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604818490600">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
@@ -204,22 +216,22 @@
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
     <state x="709" y="600" key="FileChooserDialogImpl/0.0.2560.1359@0.0.2560.1359" timestamp="1604886860380" />
-    <state width="1511" height="386" key="GridCell.Tab.0.bottom" timestamp="1604907279906">
+    <state width="1511" height="392" key="GridCell.Tab.0.bottom" timestamp="1604909872656">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
-    <state width="1511" height="386" key="GridCell.Tab.0.bottom/0.0.2560.1359@0.0.2560.1359" timestamp="1604907279906" />
-    <state width="1511" height="386" key="GridCell.Tab.0.center" timestamp="1604907279904">
+    <state width="1511" height="392" key="GridCell.Tab.0.bottom/0.0.2560.1359@0.0.2560.1359" timestamp="1604909872656" />
+    <state width="1511" height="392" key="GridCell.Tab.0.center" timestamp="1604909872656">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
-    <state width="1511" height="386" key="GridCell.Tab.0.center/0.0.2560.1359@0.0.2560.1359" timestamp="1604907279904" />
-    <state width="1511" height="386" key="GridCell.Tab.0.left" timestamp="1604907279903">
+    <state width="1511" height="392" key="GridCell.Tab.0.center/0.0.2560.1359@0.0.2560.1359" timestamp="1604909872656" />
+    <state width="1511" height="392" key="GridCell.Tab.0.left" timestamp="1604909872656">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
-    <state width="1511" height="386" key="GridCell.Tab.0.left/0.0.2560.1359@0.0.2560.1359" timestamp="1604907279903" />
-    <state width="1511" height="386" key="GridCell.Tab.0.right" timestamp="1604907279905">
+    <state width="1511" height="392" key="GridCell.Tab.0.left/0.0.2560.1359@0.0.2560.1359" timestamp="1604909872656" />
+    <state width="1511" height="392" key="GridCell.Tab.0.right" timestamp="1604909872656">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>
-    <state width="1511" height="386" key="GridCell.Tab.0.right/0.0.2560.1359@0.0.2560.1359" timestamp="1604907279905" />
+    <state width="1511" height="392" key="GridCell.Tab.0.right/0.0.2560.1359@0.0.2560.1359" timestamp="1604909872656" />
     <state width="1511" height="438" key="GridCell.Tab.1.bottom" timestamp="1604907275878">
       <screen x="0" y="0" width="2560" height="1359" />
     </state>

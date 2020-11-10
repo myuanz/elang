@@ -67,3 +67,45 @@ TODO: 参考其他不区分表达式和语句的语言的实现.
 TODO: 
 - 分结构, 分用途写语法文件, 之后程序自动合并文件并测试
 - 重新规划相关的输出结构
+
+## 11/09
+
+### 完成了import语句
+### 完成了基础的测试框架
+### 纠结于无限循环问题
+这个问题之前用小手段规避过一次, 但是后面每一次新增东西都可能会对这个结构造成影响. 
+
+我应该想想一劳永逸的正确解法
+```
+Line 21, column 15: Possible infinite loop when parsing (left recursion: 表达式 -> 单行表达式 -> 取数组表达式 -> 单行非取数组表达式 -> 二元表达式 -> 单行表达式).
+```
+
+找了一个使用peg.js解析Java的, 感觉有点头绪了. 最初直觉上觉得应该是和这个有关的:
+```
+& expression
+Try to match the expression. If the match succeeds, just return undefined and do not consume any input, otherwise consider the match failed.
+
+! expression
+Try to match the expression. If the match does not succeed, just return undefined and do not consume any input, otherwise consider the match failed.
+```
+但是这个描述太费解了噫.
+---
+不太对劲.
+
+界定符号可以清除无限循环, 但是不总是有清晰的界定符号的.
+
+## 11/10
+那个 JAVA 的解析器, 大概是用一层层向下的方式避开无限循环的, 基本都是
+```
+A = left:B right:(界定符 B)*
+B = left:C right:(界定符 C)*
+```
+也有
+```
+D = left:D' 界定符 right:D / D'
+```
+一个元素除非两侧都有界定符才能循环使用, 界定符可以是行尾, 也可以是两个其他固定符号.
+
+
+
+查了更多资料, 这是左递归问题, 传统的LL(1)文法也需要消除左递归. 

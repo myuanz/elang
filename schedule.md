@@ -109,3 +109,49 @@ D = left:D' 界定符 right:D / D'
 
 
 查了更多资料, 这是左递归问题, 传统的LL(1)文法也需要消除左递归. 
+
+## 11/11
+上一日的归纳有错误, 下面是一个演示: 
+```PEG
+// 原本的: 
+// Exp = Exp "+" Exp / Int / Str
+// 新的: 
+Exp = Int Exp2 / Str Exp2
+Exp2 = "+" Exp / _
+
+Str = [A-z]+
+Int "integer"
+  = _ [0-9]+ { return parseInt(text(), 10); }
+
+_ "whitespace"
+  = [ \t\n\r]*
+```
+还有一个复杂点的演示: 
+```PEG
+// Exp = (Exp _ ("+" / "-") _ Exp)* / "(" Exp ")" / Integer 
+
+Exp = e:("(" Exp ")" Exp2){console.log('( e )', e); return e[1]} / e:(Integer Exp2){
+	console.log("int", e)
+    if (e[1] != ''){
+    	return {
+        	...e[1], 
+            left: e[0]
+        }
+    }
+    return e[0]
+}
+Exp2 =  i:((_ ("+" / "-") _ Exp) Exp2){
+	console.log('exp2', i)
+    return {
+    	symbol: i[0][1],
+        right: i[0][3],
+        left: i[1]
+    }
+} / ""
+```
+有点丑 下午想想有没有更好的方案
+
+
+---
+
+没想到, 似乎只能二次处理了
